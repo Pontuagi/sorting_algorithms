@@ -1,6 +1,9 @@
 #include "sort.h"
 
 /**
+ * swap - function that swaps two element positions in the array
+ * @a: element of array
+ * @b: element of array
  */
 void swap(int *a, int *b)
 {
@@ -41,6 +44,11 @@ int lomuto(int *array, int low, int high)
 }
 
 /**
+ * quick_sort_helper - a function that hlps the quick_sort
+ * function to sort the array.
+ * @array: array to be traversed.
+ * @low: first element of array
+ * @high: last element of array
  */
 void quick_sort_helper(int *array, int low, int high)
 {
@@ -62,6 +70,10 @@ void quick_sort_helper(int *array, int low, int high)
 }
 
 /**
+ * quick_sort - a function that sorts an array of integers
+ * in ascending order
+ * @array: array to be traversed
+ * @size: size of array
  */
 void quick_sort(int *array, size_t size)
 {
