@@ -20,28 +20,36 @@ void swap(int *a, int *b)
   * @array: the array to divide
   * @low: the lower index
   * @high: the high index of the pivot
+  * @size: size of array.
   *
   * Return: the index of the pivot after partitioning
   */
 int lomuto(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
-	int i = low - 1;
+	int i = low;
 	int j;
 
-	for (j = low; j <= high - 1; ++j)
+	for (j = low; j < high; j++)
 	{
-		if (array[j] <= pivot)
+		if (array[j] < pivot)
 		{
-			++i;
-			swap(&array[i], &array[j]);
-			print_array(array, size);
+			if (i != j)
+			{
+				swap(&array[i], &array[j]);
+				print_array(array, size);
+			}
+			i++;
 		}
 	}
 
-	swap(&array[i + 1], &array[high]);
+	if (array[high] < array[i])
+	{
+		swap(&array[i], &array[high]);
+		print_array(array, size);
+	}
 
-	return (i + 1);
+	return (i);
 }
 
 /**
