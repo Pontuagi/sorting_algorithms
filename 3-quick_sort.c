@@ -44,28 +44,25 @@ int lomuto(int *array, int low, int high)
 }
 
 /**
- * quick_sort_helper - a function that hlps the quick_sort
+ * quick_sort_helper - a function that helps the quick_sort
  * function to sort the array.
  * @array: array to be traversed.
  * @low: first element of array
  * @high: last element of array
+ * @size: size of the array
  */
-void quick_sort_helper(int *array, int low, int high)
+void quick_sort_helper(int *array, int low, int high, size_t size)
 {
-	int i, pi;
+	int pi;
 
 	if (low < high)
 	{
 		pi = lomuto(array, low, high);
 
-		for (i = low; i <= high; ++i)
-		{
-			printf("%d ", array[i]);
-		}
-		printf("\n");
+		print_array(array, size);
 
-		quick_sort_helper(array, low, pi - 1);
-		quick_sort_helper(array, pi + 1, high);
+		quick_sort_helper(array, low, pi - 1, size);
+		quick_sort_helper(array, pi + 1, high, size);
 	}
 }
 
@@ -77,6 +74,6 @@ void quick_sort_helper(int *array, int low, int high)
  */
 void quick_sort(int *array, size_t size)
 {
-	quick_sort_helper(array, 0, size - 1);
+	quick_sort_helper(array, 0, size - 1, size);
 	print_array(array, size);
 }
