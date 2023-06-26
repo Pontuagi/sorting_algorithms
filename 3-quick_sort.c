@@ -23,7 +23,7 @@ void swap(int *a, int *b)
   *
   * Return: the index of the pivot after partitioning
   */
-int lomuto(int *array, int low, int high)
+int lomuto(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
 	int i = low - 1;
@@ -35,6 +35,7 @@ int lomuto(int *array, int low, int high)
 		{
 			++i;
 			swap(&array[i], &array[j]);
+			print_array(array, size);
 		}
 	}
 
@@ -57,9 +58,7 @@ void quick_sort_helper(int *array, int low, int high, size_t size)
 
 	if (low < high)
 	{
-		pi = lomuto(array, low, high);
-
-		print_array(array, size);
+		pi = lomuto(array, low, high, size);
 
 		quick_sort_helper(array, low, pi - 1, size);
 		quick_sort_helper(array, pi + 1, high, size);
@@ -78,5 +77,4 @@ void quick_sort(int *array, size_t size)
 		return;
 
 	quick_sort_helper(array, 0, size - 1, size);
-	print_array(array, size);
 }
