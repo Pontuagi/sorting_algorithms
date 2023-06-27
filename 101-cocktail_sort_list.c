@@ -50,11 +50,12 @@ void swap_nodes(listint_t **head, listint_t *node1, listint_t *node2)
 void cocktail_sort_list(listint_t **list)
 {
 	bool swapped;
-	listint_t *start = *list;
+	listint_t *start;
 	listint_t *end = NULL;
 
 	if (*list == NULL || (*list)->next == NULL)
 		return;
+	start = *list;
 	do {
 		swapped = false;
 
@@ -75,7 +76,6 @@ void cocktail_sort_list(listint_t **list)
 		swapped = false;
 		end = start;
 		start = start->prev;
-
 		while (start != NULL)
 		{
 			if (start->n > start->next->n)
