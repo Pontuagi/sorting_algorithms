@@ -1,4 +1,6 @@
 ﻿C - Sorting algorithms & Big O
+
+
 Learning Objectives
     • At least four different sorting algorithms
     • What is the Big O notation, and how to evaluate the time complexity of an algorithm
@@ -7,6 +9,7 @@ Learning Objectives
 
 
 Files:
+
     • 0-bubble_sort.c - a function that sorts an array of integers in ascending order using the Bubble sort algorithm. in the file 0-O, the big O notations of the time complexity of the Bubble sort algorithm, with 1 notation per line:
         ◦ in the best case
         ◦ in the average case
